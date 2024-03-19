@@ -18,7 +18,7 @@
  *
  */
 function getCurrentFunctionName() {
-  throw new Error('Not implemented');
+  return getCurrentFunctionName.name;
 }
 
 /**
@@ -87,8 +87,12 @@ function getPowerFunction(exponent) {
  *   getPolynom(8)     => y = 8
  *   getPolynom()      => null
  */
-function getPolynom() {
-  throw new Error('Not implemented');
+function getPolynom(...args) {
+  const p = args.reverse();
+  return (x) => {
+    const arr = p.map((item, i) => x ** i * item);
+    return arr.reduce((acc, cur) => acc + cur, null);
+  };
 }
 
 /**
